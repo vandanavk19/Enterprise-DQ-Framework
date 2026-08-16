@@ -60,8 +60,8 @@ The framework currently implements five data quality rules:
 |---|---|
 | `NULL_CHECK` | Identifies NULL values in configured columns |
 | `RANGE_CHECK` | Identifies values outside configured valid ranges |
-| `REGEX_CHECK` | Validates values against a configured pattern |
-| `DATE_CHECK` | Validates configured date values |
+| `REGEX_CHECK` | Validates values against a configured SQL LIKE pattern |
+| `DATE_CHECK` | Identifies dates outside the configured date range |
 | `DUPLICATE_CHECK` | Identifies duplicate values in configured columns |
 
 ## Metadata-Driven Design
@@ -79,6 +79,9 @@ Stores metadata about the source objects, including:
 - Table name
 - Primary key column
 - Active status
+- Business domain
+- Source system
+- Criticality
 
 ### DQ_RULE_MASTER
 
@@ -86,7 +89,7 @@ Stores the available data quality rules and their associated rule definitions.
 
 ### DQ_RULE_OBJECT_CONFIG
 
-Maps a data quality rule to a specific table and column and defines configuration attributes such as active status.
+Maps a data quality rule to a specific table and column and defines configuration attributes such as severity and active status.
 
 ### DQ_RULE_PARAMETER
 
