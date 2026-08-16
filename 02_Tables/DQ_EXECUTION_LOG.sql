@@ -1,0 +1,28 @@
+
+CREATE TABLE DQ_EXECUTION_LOG
+(
+    ExecutionID INT IDENTITY(1,1) PRIMARY KEY,
+
+    ConfigID INT NOT NULL,
+
+    TableName VARCHAR(100) NOT NULL,
+
+    ColumnName VARCHAR(100) NOT NULL,
+
+    RuleName VARCHAR(100) NOT NULL,
+
+    ViolationCount INT NOT NULL,
+
+    Status VARCHAR(20) NOT NULL,
+
+    ExecutionStartTime DATETIME2 NOT NULL DEFAULT GETDATE(),
+
+    ExecutionEndTime DATETIME2 NOT NULL DEFAULT GETDATE(),
+
+    ExecutionDurationMs INT NULL,
+
+    ExecutedBy VARCHAR(100) DEFAULT SUSER_SNAME(),
+
+    CreatedDate DATETIME2 DEFAULT GETDATE()
+);
+GO

@@ -1,0 +1,21 @@
+CREATE TABLE DQ_DATA_EXCEPTION_LOG
+(
+    ExceptionID INT IDENTITY(1,1) PRIMARY KEY,
+
+    ExecutionID INT NOT NULL,
+
+    ConfigID INT NOT NULL,
+
+    TableName VARCHAR(100) NOT NULL,
+
+    PrimaryKeyValue VARCHAR(100) NOT NULL,
+
+    ColumnName VARCHAR(100) NOT NULL,
+
+    InvalidValue VARCHAR(500) NULL,
+
+    ErrorMessage VARCHAR(500) NOT NULL,
+
+    CreatedDate DATETIME2 DEFAULT GETDATE()
+);
+GO
