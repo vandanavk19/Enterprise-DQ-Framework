@@ -1,8 +1,6 @@
 USE EnterpriseDQFramework;
 GO
 
-SELECT DB_NAME() AS CurrentDatabase;
-
 CREATE TABLE DQ_OBJECT_META
 (
     ObjectID INT PRIMARY KEY IDENTITY(1,1),
